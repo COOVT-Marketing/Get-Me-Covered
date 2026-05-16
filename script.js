@@ -431,7 +431,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const formData = {
-                vertical:       document.getElementById("vertical").value,
                 name:           document.getElementById("name").value,
                 phone:          document.getElementById("phone").value,
                 state:          document.getElementById("state").value,
