@@ -438,9 +438,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 zip:            document.getElementById("zip").value,
                 ipAddress:      userIp,
                 platformBrand:  "Get Me Covered",
-                xxTrustedFormUrl: document.querySelector('input[name="xxTrustedFormCertUrl"]')?.value || "",
-                xxTrustedFormPingUrl: document.querySelector('input[name="xxTrustedFormPingUrl"]')?.value || "",
-                xxTrustedFormToken: (document.querySelector('input[name="xxTrustedFormCertUrl"]')?.value || "").split('/').pop()
+                xxTrustedFormUrl: document.getElementById("xxTrustedFormCertUrl")?.value || "",
+                xxTrustedFormPingUrl: document.getElementById("xxTrustedFormPingUrl")?.value || "",
+                xxTrustedFormToken: (document.getElementById("xxTrustedFormCertUrl")?.value || "").split('/').pop()
 
             };
 
