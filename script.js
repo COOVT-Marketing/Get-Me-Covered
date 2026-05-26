@@ -341,7 +341,7 @@ const legalData = {
             <input type="tel" id="phoneNumber" placeholder="(555) 555-5555" style="margin-bottom:12px; padding:10px; width:100%; border:1px solid #CBD5E0; border-radius:4px; box-sizing:border-box;">
             
             <label style="display:flex; align-items:flex-start; gap:8px; margin-bottom:16px;">
-                <input type="checkbox" id="disclaimer" style="margin-top:4px;">
+                <input type="checkbox" id="consent" style="margin-top:4px;">
                 <span style="font-size:12px; line-height:1.4; color:#4A5568;">By executing this verification box, you explicitly record your directive to rescind data permissions and halt the delivery of outbound telemarketing campaigns, automated voicemail files, SMS notifications, and corporate email streams. Please acknowledge that by enforcing this suppression profile, you will instantly cease receiving promotional calculations, policy update disclosures, or seasonal incentives distributed by getmecovered.com, our brand verticals, or our network of downstream Marketing Partners.</span>
             </label>
             
