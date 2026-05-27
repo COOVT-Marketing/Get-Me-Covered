@@ -464,51 +464,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+// ==========================================
+//   5. MOBILE NAVBAR HANDLER (UPDATED)
+// ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
+    
+    // Looks for a close button with id="closeMenu" or class="mobile-close"
+    const closeMenuBtn = document.getElementById('closeMenu') || document.querySelector('.mobile-close');
 
-    // Toggle Mobile Menu
-    const toggleMenu = () => {
-        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-        
-        // Update ARIA attributes for accessibility
-        hamburger.setAttribute('aria-expanded', !isExpanded);
-        mobileMenu.setAttribute('aria-hidden', isExpanded);
-        
-        // Toggle active classes for visual styling
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
+    // Helper function to open the drawer
+    const openMenu = () => {
+        hamburger.setAttribute('aria-expanded', 'true');
+        mobileMenu.setAttribute('aria-hidden', 'false');
+        hamburger.classList.add('active');
+        mobileMenu.classList.add('active');
     };
 
-    // Event Listener for Hamburger Click
-    hamburger.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevents immediate closing if event bubbles up
-        toggleMenu();
-    });
+    // Helper function to close the drawer
+    const closeMenu = () => {
+        hamburger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+    };
 
-    // Close Menu when clicking a link (since they open modals)
+    // Clicking the hamburger button opens or toggles the menu
+    if (hamburger) {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+            if (isExpanded) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+    }
+
+    // Clicking the dedicated close button inside the drawer closes it
+    if (closeMenuBtn) {
+        closeMenuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    // Close Menu when clicking any individual mobile link (since they trigger modals)
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
+            closeMenu();
         });
     });
 
-    // Optional: Close menu if user clicks outside the navbar/drawer framework
+    // Close menu if a user clicks anywhere outside the open menu drawer
     document.addEventListener('click', (e) => {
+        if (!mobileMenu || !hamburger) return;
+
         const isClickInsideMenu = mobileMenu.contains(e.target);
         const isClickOnHamburger = hamburger.contains(e.target);
         const isMenuOpen = hamburger.getAttribute('aria-expanded') === 'true';
 
         if (isMenuOpen && !isClickInsideMenu && !isClickOnHamburger) {
-            hamburger.setAttribute('aria-expanded', 'false');
-            mobileMenu.setAttribute('aria-hidden', 'true');
-            hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
+            closeMenu();
         }
     });
 });
