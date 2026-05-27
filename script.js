@@ -464,3 +464,51 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    // Toggle Mobile Menu
+    const toggleMenu = () => {
+        const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+        
+        // Update ARIA attributes for accessibility
+        hamburger.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.setAttribute('aria-hidden', isExpanded);
+        
+        // Toggle active classes for visual styling
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    };
+
+    // Event Listener for Hamburger Click
+    hamburger.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents immediate closing if event bubbles up
+        toggleMenu();
+    });
+
+    // Close Menu when clicking a link (since they open modals)
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        });
+    });
+
+    // Optional: Close menu if user clicks outside the navbar/drawer framework
+    document.addEventListener('click', (e) => {
+        const isClickInsideMenu = mobileMenu.contains(e.target);
+        const isClickOnHamburger = hamburger.contains(e.target);
+        const isMenuOpen = hamburger.getAttribute('aria-expanded') === 'true';
+
+        if (isMenuOpen && !isClickInsideMenu && !isClickOnHamburger) {
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+    });
+});
