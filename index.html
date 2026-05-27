@@ -29,9 +29,11 @@
 
             <!-- Desktop Nav Links -->
             <ul class="nav-links" id="navLinks">
-                <li><a href="#coverage" class="nav-link">Coverage Options</a></li>
-                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
-                <li><a href="#leadForm" class="nav-link">Get a Quote</a></li>
+                <a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a>
+                <a href="#" onclick="openModal('terms'); return false;">Terms &amp; Conditions</a>
+                <a href="#" onclick="openModal('ccpa'); return false;">CCPA</a>
+                <a href="#" onclick="openModal('dnc'); return false;">DNC Policy</a>
+                <a href="#" onclick="openModal('optout'); return false;">Opt-Out Form</a>
                 <!-- <li>
                     <a href="tel:8554002277" class="nav-cta">
                         <span>&#9742;</span> (855) 400-2277
@@ -51,9 +53,11 @@
         <!-- Mobile Menu Drawer -->
         <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
             <ul class="mobile-nav-links">
-                <li><a href="#coverage" class="mobile-link" onclick="closeMobileMenu()">Coverage Options</a></li>
-                <li><a href="#how-it-works" class="mobile-link" onclick="closeMobileMenu()">How It Works</a></li>
-                <li><a href="#leadForm" class="mobile-link" onclick="closeMobileMenu()">Get a Quote</a></li>
+                <li><a href="#" class="mobile-link" onclick="openModal('privacy');">Privacy Policy</a></li>
+                <li><a href="#" class="mobile-link" onclick="openModal('terms');">Terms & Conditions</a></li>
+                <li><a href="#" class="mobile-link" onclick="openModal('ccpa');">CCPA</a></li>
+                <li><a href="#" class="mobile-link" onclick="openModal('dnc');">DNC Policy</a>
+                <li><a href="#" class="mobile-link" onclick="openModal('optout');">Opt-Out Form</a>
                 <!-- <li>
                     <a href="tel:8554002277" class="mobile-cta">
                         <span>&#9742;</span> (855) 400-2277
@@ -262,9 +266,9 @@
                 <a href="#" onclick="window.scrollTo(0,0); return false;">Home</a>
                 <a href="#" onclick="openModal('privacy'); return false;">Privacy Policy</a>
                 <a href="#" onclick="openModal('terms'); return false;">Terms &amp; Conditions</a>
-                <a href="#" onclick="openModal('ccpa'); return false;">CCPA Rights (Do Not Sell My Info)</a>
-                <a href="#" onclick="openModal('dnc'); return false;">Do Not Call Policy</a>
-                <a href="#" onclick="openModal('optout'); return false;">Opt-Out Requests</a>
+                <a href="#" onclick="openModal('ccpa'); return false;">CCPA</a>
+                <a href="#" onclick="openModal('dnc'); return false;">DNC Policy</a>
+                <a href="#" onclick="openModal('optout'); return false;">Opt-Out Form</a>
             </nav>
         </div>
         <div class="footer-bottom">
