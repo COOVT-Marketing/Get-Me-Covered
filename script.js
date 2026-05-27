@@ -477,19 +477,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper function to open the drawer
     const openMenu = () => {
-        hamburger.setAttribute('aria-expanded', 'true');
-        mobileMenu.setAttribute('aria-hidden', 'false');
-        hamburger.classList.add('active');
-        mobileMenu.classList.add('active');
-    };
+    hamburger.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger.classList.add('is-open');
+    mobileMenu.classList.add('is-open');
+};
 
-    // Helper function to close the drawer
-    const closeMenu = () => {
-        hamburger.setAttribute('aria-expanded', 'false');
-        mobileMenu.setAttribute('aria-hidden', 'true');
-        hamburger.classList.remove('active');
-        mobileMenu.classList.remove('active');
-    };
+const closeMenu = () => {
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger.classList.remove('is-open');
+    mobileMenu.classList.remove('is-open');
+};
 
     // Clicking the hamburger button opens or toggles the menu
     if (hamburger) {
