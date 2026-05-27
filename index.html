@@ -18,18 +18,53 @@
     <!-- ── NAVBAR ── -->
     <nav class="navbar">
         <div class="nav-inner">
+
+            <!-- Brand -->
             <a href="#" class="nav-brand">
                 <div class="brand-mark">
                     <span class="brand-icon">&#10010;</span>
                 </div>
                 <span class="brand-name">Get Me Covered</span>
             </a>
-            <!-- <a href="tel:8554002277" class="nav-phone">Speak to an Agent: (855) 400-2277</a> -->
+
+            <!-- Desktop Nav Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#coverage" class="nav-link">Coverage Options</a></li>
+                <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+                <li><a href="#leadForm" class="nav-link">Get a Quote</a></li>
+                <!-- <li>
+                    <a href="tel:8554002277" class="nav-cta">
+                        <span>&#9742;</span> (855) 400-2277
+                    </a>
+                </li> -->
+            </ul>
+
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="ham-bar"></span>
+                <span class="ham-bar"></span>
+                <span class="ham-bar"></span>
+            </button>
+
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <ul class="mobile-nav-links">
+                <li><a href="#coverage" class="mobile-link" onclick="closeMobileMenu()">Coverage Options</a></li>
+                <li><a href="#how-it-works" class="mobile-link" onclick="closeMobileMenu()">How It Works</a></li>
+                <li><a href="#leadForm" class="mobile-link" onclick="closeMobileMenu()">Get a Quote</a></li>
+                <!-- <li>
+                    <a href="tel:8554002277" class="mobile-cta">
+                        <span>&#9742;</span> (855) 400-2277
+                    </a>
+                </li> -->
+            </ul>
         </div>
     </nav>
 
     <!-- ── HERO + FORM ── -->
-    <section class="hero">
+    <section class="hero" id="leadForm">
         <div class="hero-inner">
 
             <!-- Left: Copy -->
@@ -58,6 +93,34 @@
                         <span class="trust-text">Secure & Private</span>
                     </div>
                 </div>
+
+                <!-- How It Works – anchored here for mobile flow -->
+                <div class="steps-block" id="how-it-works">
+                    <p class="steps-label">How It Works</p>
+                    <ol class="steps-list">
+                        <li>
+                            <span class="step-num">1</span>
+                            <div>
+                                <strong>Fill out the form</strong>
+                                <p>Takes under 60 seconds — just your name, phone, and zip.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-num">2</span>
+                            <div>
+                                <strong>We match your profile</strong>
+                                <p>Our system compares plans available in your area instantly.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="step-num">3</span>
+                            <div>
+                                <strong>Speak with a licensed agent</strong>
+                                <p>A real expert calls you to walk through your best options.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
             </div>
 
             <!-- Right: Lead Form -->
@@ -67,7 +130,7 @@
                     <h2 class="form-title">Check Your Eligibility</h2>
                     <p class="form-sub">Takes under 60 seconds. No obligation.</p>
 
-                    <form id="leadForm" novalidate>
+                    <form id="leadFormEl" novalidate>
 
                         <div class="field">
                             <label for="name">Full Name</label>
@@ -142,7 +205,7 @@
     </div>
 
     <!-- ── COVERAGE CARDS ── -->
-    <section class="coverages-section">
+    <section class="coverages-section" id="coverage">
         <div class="section-inner">
             <div class="section-chip">Coverage Options</div>
             <h2 class="section-title">Explore Your Coverage Options</h2>
